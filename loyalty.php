@@ -21,10 +21,10 @@ class Loyalty {
   // Constructor checks we have a user and that we don't already have a Loyalty object for them.
 
     if(!isset($data->id) || empty($data->id)) return;
-    if(Loyalty::find($data->id) !== null ) {
+    if(self::find($data->id) > 0 ) {
       return;
     } 
-    Loyalty::save($data->id);
+    self::save($data->id);
   
   }
 
@@ -42,8 +42,9 @@ class Loyalty {
   }
 
   static function find($user_id) {
-    // Check DB for Loyalty object associated to this user_id. Hopefully returns null.
-  
+    // Check DB for COUNT of Loyalty objects associated to this user_id. 
+    // Expecting this to be 0.
+    
   }
 
   private function getLevelFromPoints() {
@@ -169,4 +170,3 @@ class Loyalty {
   // 
   // For instance: if a user accummulates 150 points, but does not reach the next echelon, the user's status will fall back to 50 points.
   //
-  
