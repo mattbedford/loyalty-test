@@ -103,8 +103,10 @@ class Loyalty {
    */
 
   public function getPoints() {
+
     $this->checkForReset();
     return $this->points;
+  
   }
 
 
@@ -150,23 +152,3 @@ class Loyalty {
   }
 
 }
-
-
-
-//INSTRUCTIONS
-
-// When a customer signs up, a loyalty object is created.
-  // During the year, the user can accumulate points.
-  // There are various echelons, each being based on a quantity of points which then affords the customer a discount
-  // For instance, we imagine them as follows:
-  // 0 points: nessuno discount
-  // 100 points: 10% discount
-  // 200 points: 20% discount
-  // 300 points: 30% discount
-  // Etc
-  //
-  // Each time a new echelon is reached, a new year is begun (resetting the previous one).
-  // If, during the year, the customer does not reach the next echelon, the user's status is reset based on the number of points accrued during the preceding year.
-  // 
-  // For instance: if a user accummulates 150 points, but does not reach the next echelon, the user's status will fall back to 50 points.
-  //
